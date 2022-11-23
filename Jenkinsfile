@@ -15,7 +15,10 @@ pipeline {
                      echo "Archiving the Artifacts"
                      archiveArtifacts artifacts: '**/debug/*.apk'                             
                  }
-            }            
+            } 
+            success{
+                emailext body: '', recipientProviders: [developers()], subject: 'build', to: 'manjula.r@ciglobalsolutions.com'
+            }
         }            
     }
 }
