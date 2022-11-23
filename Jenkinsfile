@@ -16,6 +16,19 @@ pipeline {
                      archiveArtifacts artifacts: '**/debug/*.apk'                             
                  }
             }             
-        } 
+        }      
+            stage('Test'){
+                post{
+                    success{
+                        emailext body: '', recipientProviders: [developers()], subject: 'build', to: 'manjula.r@ciglobalsolutions.com'
+                    }
+                }
+                steps {
+                    echo "successfully"
+                }
+            }
+    }
+    
+                   
     }
 }
