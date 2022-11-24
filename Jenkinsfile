@@ -1,5 +1,5 @@
 pipeline {
-    agent{Docker{ image 'gradle 7.3.0'}}
+    agent any {Docker{ image 'gradle 7.3.0'}}
 //     tools{
 //       gradle 'gradle'
 //     }
