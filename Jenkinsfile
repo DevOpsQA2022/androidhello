@@ -1,11 +1,18 @@
 pipeline {
     agent any
-    tools{
-      gradle 'gradle'
-    }
+//     tools{
+//       gradle 'gradle'
+//     }
     stages {
-        stage('Build') {              
+        stage('Build') {
+             agent {
+                docker {
+                    image 'gradle:7.3-jdk17'
+                    reuseNode true
+                }
+             }
             steps {  
+                sh ' gradle --version'
                
                sh 'gradle build' 
                 echo "successfully build"
