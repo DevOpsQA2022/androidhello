@@ -15,7 +15,7 @@ pipeline {
               post{
                  success{
                      echo "Archiving the Artifacts"
-                     archiveArtifacts artifacts: '**/debug/*.apk'                             
+                     archiveArtifacts artifacts: '**/debug/helloworld.apk'                             
                  }
             }             
         }      
