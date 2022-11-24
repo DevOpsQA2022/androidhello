@@ -1,17 +1,14 @@
 pipeline {
-    agent
-    {
-        docker
-        { 
-            image 'gradle 7.3.0'
-        }
-    }
+    agent { docker { image 'gradle:7.3' } }
+    
 //     tools{
 //       gradle 'gradle'
 //     }
     stages {
         stage('Build') {              
-            steps {                
+            steps {  
+                sh 'gradle --version'
+                sh 'gradle install'
                sh 'gradle clean build' 
                 echo "successfully build"
                 
