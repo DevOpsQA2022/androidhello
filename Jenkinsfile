@@ -1,7 +1,7 @@
 pipeline {
     agent
     {
-        Docker
+        docker
         { 
             image 'gradle 7.3.0'
         }
