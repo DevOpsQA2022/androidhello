@@ -7,7 +7,7 @@ pipeline {
         stage ('Build') {
             
             steps { 
-                sh ' docker build. -t manjula28112022/devopsqa '                            
+                sh ' docker build. -f manjula28112022/devopsqa '                            
 //                sh 'gradle build' 
                 echo "successfully build"
                 
