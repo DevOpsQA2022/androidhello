@@ -4,29 +4,22 @@ pipeline {
 //       gradle 'gradle'
 //     }
     stages {
-        stage('Build') {
+        stage ('Build') {
             
             steps { 
-                sh ' docker build -t manjula28112022/devopsqa '
-
-                            
+                sh ' docker build -t manjula28112022/devopsqa '                            
 //                sh 'gradle build' 
                 echo "successfully build"
                 
-            }
-           
-//               post{
-//                  success{
-//                      echo "Archiving the Artifacts"
-//                      archiveArtifacts artifacts: '**/debug/*.apk'                             
-//                  }
-//             }             
+            }        
         }      
-            stage('push'){
+         stage ('push') {
+             steps {
                 withDockerRegistry(credentialsId: '	ec4e4d32-bd3f-4eba-a3bf-ea1f00b6d1fb', url: 'https://hub.docker.com/repository/docker/manjula28112022/devopsqa'){
                      sh ' docker push manjula28112022/devopsqa '
                 }
+             }
                
-            }
+        }
     }
 }
