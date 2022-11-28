@@ -1,8 +1,8 @@
 pipeline {
     agent any
-//     tools{
-//       gradle 'gradle'
-//     }
+    tools{
+      docker 'Docker'
+    }
     stages {
         stage ('Build') {
             
