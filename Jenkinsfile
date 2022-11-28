@@ -1,14 +1,14 @@
 pipeline {
     agent any
-    tools{
-      gradle 'gradle'
-    }
+//     tools{
+//       gradle 'gradle'
+//     }
     stages {
         stage('Build') {
             
             steps {  
                             
-               sh 'gradle build' 
+//                sh 'gradle build' 
                 echo "successfully build"
                 
             }
