@@ -8,7 +8,7 @@ pipeline {
             
             steps {  
                             
-               sh 'gradle build'
+               bat 'gradle build'
                 echo "successfully build"
                 
             }
