@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     def deploymentDelay = input id: 'Test', message: 'Deploy to production?', submitter: 'admin', parameters: [choice(choices: ['Testing Pass','Testing Fail'], description: 'Move to deployment?', name: 'deploymentDelay')]
-                    sleep time: deploymentDelay.toInteger(), unit: 'HOURS'
+                   // sleep time: deploymentDelay.toInteger(), unit: 'HOURS'
                 }
             }
         }
