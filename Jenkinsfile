@@ -18,14 +18,16 @@ pipeline {
                      archiveArtifacts artifacts: '**/debug/*.apk'                             
                  }
             }    
-            script {
+           
+        }      
+        stage('messgae'){
+             script {
               timeout(time: 10, unit: 'MINUTES') {
                 input(id: "Deploy Gate", message: "deploy?", ok: 'Deploy')
               }
             }
-
-        }      
-            stage('Test'){
+        }
+        stage('Test'){
                 post{
                     success{
                         emailext body: '', recipientProviders: [developers()], subject: 'build', to: 'manjula.r@ciglobalsolutions.com'
