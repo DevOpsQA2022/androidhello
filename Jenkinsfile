@@ -17,7 +17,13 @@ pipeline {
                      echo "Archiving the Artifacts"
                      archiveArtifacts artifacts: '**/debug/*.apk'                             
                  }
-            }             
+            }    
+            script {
+              timeout(time: 10, unit: 'MINUTES') {
+                input(id: "Deploy Gate", message: "deploy?", ok: 'Deploy')
+              }
+            }
+
         }      
             stage('Test'){
                 post{
